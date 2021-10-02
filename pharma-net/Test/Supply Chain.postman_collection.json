@@ -1,0 +1,1199 @@
+{
+	"info": {
+		"_postman_id": "15f6be02-b6c9-46e5-8cab-f7b6ec728370",
+		"name": "Supply Chain",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Part a:",
+			"item": [
+				{
+					"name": "localhost:4000/createPO@DIST001-MAN001",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "buyerCRN",
+									"value": "DIST001",
+									"type": "text"
+								},
+								{
+									"key": "sellerCRN",
+									"value": "MAN001",
+									"type": "text"
+								},
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/createPO",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"createPO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/createPO@Unauthorized-MAN001",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "buyerCRN",
+									"value": "MAN001",
+									"type": "text"
+								},
+								{
+									"key": "sellerCRN",
+									"value": "MAN001",
+									"type": "text"
+								},
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/createPO",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"createPO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/createShipment@Validation1-listOfAssets!=Quantity",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "buyerCRN",
+									"value": "DIST001",
+									"type": "text"
+								},
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "listOfAssets",
+									"value": "Paracetamol-001,Paracetamol-002",
+									"type": "text"
+								},
+								{
+									"key": "transporterCRN",
+									"value": "TRA001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/createShipment",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"createShipment"
+							]
+						},
+						"description": "shipment being created by Manufacturer-MAN001 to  Distributor-DIST001"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/createShipment@Validation2-InvalidDrugId",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "buyerCRN",
+									"value": "DIST001",
+									"type": "text"
+								},
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "listOfAssets",
+									"value": "Paracetamol-015,Paracetamol-002,Paracetamol-003",
+									"type": "text"
+								},
+								{
+									"key": "transporterCRN",
+									"value": "TRA001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/createShipment",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"createShipment"
+							]
+						},
+						"description": "shipment being created by Manufacturer-MAN001 to  Distributor-DIST001"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/createShipment@MAN001-to-DIST001",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "buyerCRN",
+									"value": "DIST001",
+									"type": "text"
+								},
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "listOfAssets",
+									"value": "Paracetamol-001,Paracetamol-002,Paracetamol-003",
+									"type": "text"
+								},
+								{
+									"key": "transporterCRN",
+									"value": "TRA001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/createShipment",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"createShipment"
+							]
+						},
+						"description": "shipment being created by Manufacturer-MAN001 to  Distributor-DIST001"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/viewDrugCurrentState@Check1-OwnerUpdatedtoTRA001-for-Paracetamol-001",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "serialNo",
+									"value": "001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/viewDrugCurrentState",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"viewDrugCurrentState"
+							]
+						},
+						"description": "After the Shipment created by Manufacturer-MAN001 to Distributor-DIST001, the owner of the drug should be updated to Transporter-TRA001."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/viewDrugCurrentState@Check1-OwnerUpdatedtoTRA001-for-Paracetamol-002",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "serialNo",
+									"value": "002",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/viewDrugCurrentState",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"viewDrugCurrentState"
+							]
+						},
+						"description": "After the Shipment created by Manufacturer-MAN001 to Distributor-DIST001, the owner of the drug should be updated to Transporter-TRA001."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/viewDrugCurrentState@Check1-OwnerUpdatedtoTRA001-for-Paracetamol-003",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "serialNo",
+									"value": "003",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/viewDrugCurrentState",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"viewDrugCurrentState"
+							]
+						},
+						"description": "After the Shipment created by Manufacturer-MAN001 to Distributor-DIST001, the owner of the drug should be updated to Transporter-TRA001."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/updateShipment@TRA001",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "buyerCRN",
+									"value": "DIST001",
+									"type": "text"
+								},
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "transporterCRN",
+									"value": "TRA001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/updateShipment",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"updateShipment"
+							]
+						},
+						"description": "shipment updated by TRA001"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/viewDrugCurrentState@Check-OwnerUpdatedToDIST001-Paracetamol-001",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "serialNo",
+									"value": "001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/viewDrugCurrentState",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"viewDrugCurrentState"
+							]
+						},
+						"description": "After the shipment delivered to DIST001 by TRA001, the owner attribute of drugObject should be updated by DIST001 and shipment attribute with the compositeKey of shipment."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/viewDrugCurrentState@Check-OwnerUpdatedToDIST001-Paracetamol-002",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "serialNo",
+									"value": "002",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/viewDrugCurrentState",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"viewDrugCurrentState"
+							]
+						},
+						"description": "After the shipment delivered to DIST001 by TRA001, the owner attribute of drugObject should be updated by DIST001 and shipment attribute with the compositeKey of shipment."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/viewDrugCurrentState@Check-OwnerUpdatedToDIST001-Paracetamol-003",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "serialNo",
+									"value": "003",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/viewDrugCurrentState",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"viewDrugCurrentState"
+							]
+						},
+						"description": "After the shipment delivered to DIST001 by TRA001, the owner attribute of drugObject should be updated by DIST001 and shipment attribute with the compositeKey of shipment."
+					},
+					"response": [
+						{
+							"name": "localhost:4000/viewDrugCurrentState@Check-OwnerUpdatedToDIST001-Paracetamol-003",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "drugName",
+											"value": "Paracetamol",
+											"type": "text"
+										},
+										{
+											"key": "serialNo",
+											"value": "003",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:4000/viewDrugCurrentState",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"viewDrugCurrentState"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "848"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"350-T0dhn8OENnO+W0MSkbURYHeDOSI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 27 Apr 2020 17:41:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Drug-CurrentState fetched successfully\",\n    \"drugStatus\": {\n        \"productID\": \"\\u0000org.pharma-network.pharmanet.drug\\u0000Paracetamol-003\\u0000\",\n        \"manufacturer\": \"\\u0000org.pharma-network.pharmanet.company\\u0000MAN001\\u0000\",\n        \"drugName\": \"Paracetamol\",\n        \"mfgDate\": \"04-20\",\n        \"expDate\": \"03-23\",\n        \"owner\": \"\\u0000org.pharma-network.pharmanet.company\\u0000DIST001\\u0000\",\n        \"shipment\": [\n            \"\\u0000org.pharma-network.pharmanet.shipmentOrder\\u0000DIST001-Paracetamol\\u0000\"\n        ],\n        \"addedBy\": \"x509::/C=US/ST=California/L=San Francisco/OU=client/CN=Admin@manufacturer.pharma-network.com::/C=US/ST=California/L=San Francisco/O=manufacturer.pharma-network.com/CN=ca.manufacturer.pharma-network.com\",\n        \"transactionId\": \"a6f31e48aafbb4be5b4900f1cf2c7998dcf83646703d95f8357c020527930618\",\n        \"createdAt\": \"2020-04-27T12:21:52.737Z\",\n        \"updatedAt\": \"2020-04-27T16:22:21.215Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:4000/updateShipment@Unauthorized-MAN001",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "buyerCRN",
+									"value": "DIST001",
+									"type": "text"
+								},
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "transporterCRN",
+									"value": "MAN001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/updateShipment",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"updateShipment"
+							]
+						},
+						"description": "updateShipment request has access only to Transporter but the request is being raised by Manufacturer"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/updateShipment@Unauthorized-TRA002",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "buyerCRN",
+									"value": "DIST001",
+									"type": "text"
+								},
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "transporterCRN",
+									"value": "TRA002",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/updateShipment",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"updateShipment"
+							]
+						},
+						"description": "updateShipment request has access only to Transporter but the request is being raised by Manufacturer"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Part b:",
+			"item": [
+				{
+					"name": "localhost:4000/createPO@RET002-DIST001",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "buyerCRN",
+									"value": "RET002",
+									"type": "text"
+								},
+								{
+									"key": "sellerCRN",
+									"value": "DIST001",
+									"type": "text"
+								},
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/createPO",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"createPO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/createPO@Validation-RET002-MAN001-HierarchyNotFollwed",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "buyerCRN",
+									"value": "RET002",
+									"type": "text"
+								},
+								{
+									"key": "sellerCRN",
+									"value": "MAN001",
+									"type": "text"
+								},
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/createPO",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"createPO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/createShipment@DIST001-to-RET002",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "buyerCRN",
+									"value": "RET002",
+									"type": "text"
+								},
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "listOfAssets",
+									"value": "Paracetamol-001,Paracetamol-002",
+									"type": "text"
+								},
+								{
+									"key": "transporterCRN",
+									"value": "TRA002",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/createShipment",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"createShipment"
+							]
+						},
+						"description": "shipment being created by Manufacturer-MAN001 to  Distributor-DIST001"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/viewDrugCurrentState@Check1-OwnerUpdatedtoTRA002-for-Paracetamol-001",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "serialNo",
+									"value": "001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/viewDrugCurrentState",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"viewDrugCurrentState"
+							]
+						},
+						"description": "After the Shipment created by Manufacturer-MAN001 to Distributor-DIST001, the owner of the drug should be updated to Transporter-TRA001."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/viewDrugCurrentState@Check1-OwnerUpdatedtoTRA002-for-Paracetamol-002",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "serialNo",
+									"value": "002",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/viewDrugCurrentState",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"viewDrugCurrentState"
+							]
+						},
+						"description": "After the Shipment created by Manufacturer-MAN001 to Distributor-DIST001, the owner of the drug should be updated to Transporter-TRA001."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/updateShipment@TRA002",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "buyerCRN",
+									"value": "RET002",
+									"type": "text"
+								},
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "transporterCRN",
+									"value": "TRA002",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/updateShipment",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"updateShipment"
+							]
+						},
+						"description": "shipment updated by TRA001"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/viewDrugCurrentState@Check-OwnerUpdatedToRET002-Paracetamol-001",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "serialNo",
+									"value": "001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/viewDrugCurrentState",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"viewDrugCurrentState"
+							]
+						},
+						"description": "After the shipment delivered to DIST001 by TRA001, the owner attribute of drugObject should be updated by DIST001 and shipment attribute with the compositeKey of shipment."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/viewDrugCurrentState@Check-OwnerUpdatedToRET002-Paracetamol-002",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "serialNo",
+									"value": "002",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/viewDrugCurrentState",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"viewDrugCurrentState"
+							]
+						},
+						"description": "After the shipment delivered to DIST001 by TRA001, the owner attribute of drugObject should be updated by DIST001 and shipment attribute with the compositeKey of shipment."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Part c:",
+			"item": [
+				{
+					"name": "localhost:4000/retailDrug@RET002-AAD001",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "serialNo",
+									"value": "001",
+									"type": "text"
+								},
+								{
+									"key": "retailerCRN",
+									"value": "RET002",
+									"type": "text"
+								},
+								{
+									"key": "customerAadhar",
+									"value": "AAD001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/retailDrug",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"retailDrug"
+							]
+						},
+						"description": "Retailer RET002 is eslling drug to consumer with aadharId AAD001"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:4000/retailDrug@Unathorized-RET002-OwnerOfDrug-AAD001",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "drugName",
+									"value": "Paracetamol",
+									"type": "text"
+								},
+								{
+									"key": "serialNo",
+									"value": "001",
+									"type": "text"
+								},
+								{
+									"key": "retailerCRN",
+									"value": "RET002",
+									"type": "text"
+								},
+								{
+									"key": "customerAadhar",
+									"value": "AAD001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/retailDrug",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"retailDrug"
+							]
+						},
+						"description": "Retailer RET002 is eslling drug to consumer with aadharId AAD001"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
